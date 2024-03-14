@@ -16,12 +16,17 @@ Se agregan además funcionalidades de sonido, donde se reproduce el sonido carac
 En esta página web tenemos dos cosas importantes, el formulario y la tabla. 
 ![Formulario](./assets/imgs/Sc1_formulario.png)
 ![Formulario](./assets/imgs/Sc2_tablavacia.png)
+
 El formulario nos pide datos que debemos agregar, cuando seleccionamos el Nombre del animal, enseguida podemos previsualizar una imagen en la sección final del formulario.
 ![Formulario](./assets/imgs/Sc3_form2.png)
+
 Al seleccionar agregar, la tabla va a ir obteniendo los animales agregador, como podemos ver a a continuación:
 ![Formulario](./assets/imgs/Sc4_tabla2.png)
+
 Finalmente podemos seleccionar uno de los animales, desplegar un modal y obtener más detalles de dicho animal.
 ![Formulario](./assets/imgs/Sc5_modal.png)
+
+Para cerrar el modal, solo debes hacer click fuera del modal.
 
 ## Empezando 🚀
 
@@ -39,13 +44,10 @@ Lista de software y herramientas, incluyendo versiones, que necesitas para insta
 Deberás clonar este repositorio en tus archivos, de esta manera:
 
 ```bash
-# paso 1
+# git clone git@github.com:jesbell/M4-U3-AnimalesSalvajes.git
 ```
 Con eso podrás tenerlo en tu espacio de trabajo
 
-```bash
-# paso 2
-```
 
 ## Construido Con 🛠️
 
@@ -54,7 +56,7 @@ Con eso podrás tenerlo en tu espacio de trabajo
 
 ## Soporte
 
-Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/your/project/issues).
+Si tienes algún problema o sugerencia, por favor abre un problema [aquí](https://github.com/jesbell/M4-U3-AnimalesSalvajes/issues).
 
 ## Versionado 📌
 
@@ -71,4 +73,4 @@ Si encontraste cualquier valor en este proyecto o quieres contribuir, aquí est�
 
 ---
 
-⌨️ con ❤️ por [Joselyn Gonzaéz](https://github.com/jesbell) 😊
+⌨️ con ❤️ por [Joselyn Gonzaléz](https://github.com/jesbell) 😊
