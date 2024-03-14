@@ -12,15 +12,37 @@ let animales = []; // Arreglo para almacenar los objetos de animales registrados
 const reloadTable = () => {
     const animalesTemplate = document.getElementById("Animales"); // Obtiene el contenedor de la tabla de animales
     animalesTemplate.innerHTML = ""; // Limpia el contenido actual de la tabla
+    //Iterando sobre el arreglo
     animales.forEach((p, i) => {
-        //Iterando sobre el arreglo
+        //Creamos contenedores y clases para tarjetas
+        //Se crea el contenedor principal de la tarjeta
+        const mainContenedor = document.createElement("div");
+        mainContenedor.classList.add("card", "m-1");
+
+        //Se crea etiqueta img y se agrega al mainContenedor
         const imagenAnimal = document.createElement("img");
         imagenAnimal.src = p.Img;
         imagenAnimal.alt = p.Nombre;
-        animalesTemplate.appendChild(imagenAnimal);
+        imagenAnimal.classList.add("card-img-top", "img-fluid");
+        mainContenedor.appendChild(imagenAnimal);
+
+        //Se crea con nuevo contenedor para la cardBody (sonido)
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body", "custom-button");
+        mainContenedor.appendChild(cardBody);
+
+        //Se crea una etiqueta botón para el contenedor cardBody
+        const botonSonido = document.createElement("button");
+        botonSonido.classList.add("btn");
+        botonSonido.textContent = "SONIDO";
+        botonSonido.addEventListener("click", () => {
+            playSound(p.Nombre);
+        });
+        cardBody.appendChild(botonSonido);
+
+        //Se agrega la tarjeta al contenedor Animales
+        animalesTemplate.appendChild(mainContenedor);
     });
-    document.querySelectorAll(".card-body button")
-    .forEach((b) => b.addEventListener("click", activarHabiblidad)); // Agrega un evento de clic a los botones para activar habilidades
 };
 
 // Función para reproducir el sonido del animal seleccionado
@@ -32,6 +54,12 @@ window.playSound = (nombre) => {
     ? animal.Rugir()
     : nombre == "Lobo"
     ? animal.Aullar()
+    : nombre == "Oso"
+    ? animal.Grunido()
+    : nombre == "Serpiente"
+    ? animal.Siseo()
+    : nombre == "Aguila"
+    ? animal.Chillar()
     : undefined;
 };
 
