@@ -24,6 +24,11 @@ const reloadTable = () => {
         imagenAnimal.src = p.Img;
         imagenAnimal.alt = p.Nombre;
         imagenAnimal.classList.add("card-img-top", "img-fluid");
+
+        imagenAnimal.addEventListener("click", () => {
+            modalDetails(i);
+            $('#exampleModal').modal('show'); //abrir el modal
+        });
         mainContenedor.appendChild(imagenAnimal);
 
         //Se crea con nuevo contenedor para la cardBody (sonido)
@@ -67,7 +72,27 @@ window.playSound = (nombre) => {
 window.modalDetails = (i) => {
     const modalBody = document.getElementsByClassName("modal-body")[0]; // Obtiene el cuerpo del modal
     const animal = animales[i]; // Obtiene el objeto de animal correspondiente al índice
-    modalBody.innerHTML = ``; // Agrega el HTML correspondiente al cuerpo del modal para mostrar los detalles del animal
+    modalBody.innerHTML = ""; // Agrega el HTML correspondiente al cuerpo del modal para mostrar los detalles del animal
+    //Creando elemntos para el modal-body
+    const imagen = document.createElement("img");
+    imagen.src = animal.Img;
+    imagen.alt = animal.Nombre;
+    imagen.classList.add("img-fluid");
+
+    const nombre = document.createElement("h5");
+    nombre.textContent = animal.Nombre;
+
+    const edad = document.createElement("p");
+    edad.textContent = `Edad: ${animal.Edad}`;
+
+    const comentarios = document.createElement("p");
+    comentarios.textContent = `Comentarios: ${animal.Comentarios}`;
+
+    //Agregando los elementos al modal-body
+    modalBody.appendChild(imagen);
+    modalBody.appendChild(nombre);
+    modalBody.appendChild(edad);
+    modalBody.appendChild(comentarios);
 };
 
 // Variable para almacenar la ruta de la imagen del animal seleccionado
