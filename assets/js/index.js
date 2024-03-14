@@ -24,7 +24,7 @@ const reloadTable = () => {
         imagenAnimal.src = p.Img;
         imagenAnimal.alt = p.Nombre;
         imagenAnimal.classList.add("card-img-top", "img-fluid");
-
+        //Se agrega un event listener para abrir el modal
         imagenAnimal.addEventListener("click", () => {
             modalDetails(i);
             $('#exampleModal').modal('show'); //abrir el modal
@@ -40,6 +40,7 @@ const reloadTable = () => {
         const botonSonido = document.createElement("button");
         botonSonido.classList.add("btn");
         botonSonido.textContent = "SONIDO";
+        //Se agrega un event listener para llamar a la funcion playSound
         botonSonido.addEventListener("click", () => {
             playSound(p.Nombre);
         });
@@ -54,7 +55,7 @@ const reloadTable = () => {
 window.playSound = (nombre) => {
     const animal = animales.find((a) => a.getNombre() == nombre); // Encuentra el objeto de animal correspondiente al nombre
     console.log(animal); // Imprime el objeto animal en la consola
-  // Selecciona el método de sonido según el tipo de animal y lo reproduce
+    // Selecciona el método de sonido según el tipo de animal y lo reproduce
     nombre == "Leon"
     ? animal.Rugir()
     : nombre == "Lobo"
@@ -73,7 +74,7 @@ window.modalDetails = (i) => {
     const modalBody = document.getElementsByClassName("modal-body")[0]; // Obtiene el cuerpo del modal
     const animal = animales[i]; // Obtiene el objeto de animal correspondiente al índice
     modalBody.innerHTML = ""; // Agrega el HTML correspondiente al cuerpo del modal para mostrar los detalles del animal
-    //Creando elemntos para el modal-body
+    //Creando elementos para el modal-body
     const imagen = document.createElement("img");
     imagen.src = animal.Img;
     imagen.alt = animal.Nombre;
@@ -142,14 +143,14 @@ document.getElementById("btnRegistrar").addEventListener("click", () => {
                 newAnimal = new Aguila(nombreAnimal, edad, imagenSrc, comentarios, sonido);
                 break;
         }
-        //agregar el nuevo animal a la lista
+        //Agregar el nuevo animal al arreglo animales
         animales.push(newAnimal);
         //limpiar formulario
         document.getElementById("animal").selectedIndex = 0;
         document.getElementById("edad").selectedIndex = 0;
         document.getElementById("comentarios").value = "";
         /* console.log(animales); */
-        //llama a la función realodTable;
+        //Se llama a la función realodTable;
         reloadTable();
     }
     else{
